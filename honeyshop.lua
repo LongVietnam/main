@@ -128,13 +128,13 @@ local function WJLP_fake_script() -- Fake Script: StarterGui.ScreenGui.Frame.Tex
 		if not db then
 			script.Parent.BackgroundColor3 = Color3.fromRGB(0,255,0)
 			script.Parent.Text = "on"
-			db = true
+			db = not db
 			game.Players.LocalPlayer.PlayerGui:WaitForChild("HoneyEventShop_UI").Enabled = true
 		else
 			script.Parent.BackgroundColor3 = Color3.fromRGB(255,0,0)
 			script.Parent.Text = "off"
-			db = false
-			game.Players.LocalPlayer.PlayerGui:WaitForChild("HoneyEventShop_UI").Enabled = true
+			db = not db
+			game.Players.LocalPlayer.PlayerGui:WaitForChild("HoneyEventShop_UI").Enabled = false
 		end
 	end)
 end
