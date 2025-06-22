@@ -21,7 +21,7 @@ local Converted = {
 
 Converted["_ScreenGui"].DisplayOrder = 100
 Converted["_ScreenGui"].ZIndexBehavior = Enum.ZIndexBehavior.Sibling
-Converted["_ScreenGui"].Parent = game:GetService("CoreGui")
+Converted["_ScreenGui"].Parent = game.Players.LocalPlayer.PlayerGui
 
 Converted["_Frame"].BackgroundColor3 = Color3.fromRGB(117.00000822544098, 65.0000037252903, 5.000000176951289)
 Converted["_Frame"].BorderColor3 = Color3.fromRGB(0, 0, 0)
@@ -91,17 +91,17 @@ local fake_module_scripts = {}
 -- Fake Local Scripts:
 
 local function ILJDW_fake_script() -- Fake Script: StarterGui.ScreenGui.Frame.Frame.TextButton.LocalScript
-    local script = Instance.new("LocalScript")
-    script.Name = "LocalScript"
-    script.Parent = Converted["_TextButton"]
-    local req = require
-    local require = function(obj)
-        local fake = fake_module_scripts[obj]
-        if fake then
-            return fake()
-        end
-        return req(obj)
-    end
+	local script = Instance.new("LocalScript")
+	script.Name = "LocalScript"
+	script.Parent = Converted["_TextButton"]
+	local req = require
+	local require = function(obj)
+		local fake = fake_module_scripts[obj]
+		if fake then
+			return fake()
+		end
+		return req(obj)
+	end
 
 	script.Parent.MouseButton1Click:Connect(function()
 		script.Parent.Parent.Parent:Destroy()
@@ -111,17 +111,17 @@ local function ILJDW_fake_script() -- Fake Script: StarterGui.ScreenGui.Frame.Fr
 	end)
 end
 local function WJLP_fake_script() -- Fake Script: StarterGui.ScreenGui.Frame.TextButton.LocalScript
-    local script = Instance.new("LocalScript")
-    script.Name = "LocalScript"
-    script.Parent = Converted["_TextButton1"]
-    local req = require
-    local require = function(obj)
-        local fake = fake_module_scripts[obj]
-        if fake then
-            return fake()
-        end
-        return req(obj)
-    end
+	local script = Instance.new("LocalScript")
+	script.Name = "LocalScript"
+	script.Parent = Converted["_TextButton1"]
+	local req = require
+	local require = function(obj)
+		local fake = fake_module_scripts[obj]
+		if fake then
+			return fake()
+		end
+		return req(obj)
+	end
 
 	local db = false
 	script.Parent.MouseButton1Click:Connect(function()
@@ -138,25 +138,6 @@ local function WJLP_fake_script() -- Fake Script: StarterGui.ScreenGui.Frame.Tex
 		end
 	end)
 end
-local function VARC_fake_script() -- Fake Script: StarterGui.ScreenGui.LocalScript
-    local script = Instance.new("LocalScript")
-    script.Name = "LocalScript"
-    script.Parent = Converted["_ScreenGui"]
-    local req = require
-    local require = function(obj)
-        local fake = fake_module_scripts[obj]
-        if fake then
-            return fake()
-        end
-        return req(obj)
-    end
-
-	wait()
-	if game.GameId ~= 126884695634066 then
-		script.Parent:Destroy()
-	end
-end
 
 coroutine.wrap(ILJDW_fake_script)()
 coroutine.wrap(WJLP_fake_script)()
-coroutine.wrap(VARC_fake_script)()
